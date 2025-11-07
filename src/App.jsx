@@ -1,14 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import SearchResults from './SearchResults';
+import { use, useState } from 'react';
+import './App.css';
+
 import SearchBar from './SearchBar';
-import { spotifyPlaylist } from './SpotifyPlaylist';
+import SearchResults from './SearchResults';
+import Playlist from './Playlist';
+import Song from './Song';
+
+import { spotifyPlaylist, addedSongs } from './utilities';
 
 
 function App() {
+  
+  
   const [results, setResults] = useState(spotifyPlaylist);
+
+  const [playlist,setPlaylist] = useState([]);
+ 
+  
+
+ 
+
+
+  
 
   return (
     <>
@@ -17,7 +30,8 @@ function App() {
       </header>
       <main>
         <SearchBar />
-        <SearchResults results={spotifyPlaylist}/>
+        <SearchResults results={results} addToPlaylist={setPlaylist}/>
+        <Playlist playlist={playlist} removeFromPlaylist={setPlaylist}/>
       </main>
       
       

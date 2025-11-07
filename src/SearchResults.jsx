@@ -1,24 +1,41 @@
 import React, { useState } from 'react';
 import Song from './Song';
+import { generateId } from './utilities';
 
-function SearchResults(props){
-    const listItem = props.results.map(({song})=>{
-                    return <Song
-                        name={props.name}
-                        artist={props.artist}
-                        album={props.album}
-                        id={props.id}
-                    />;
-                });
 
-    // console.log(listItem);
+function SearchResults({results, addToPlaylist}){
+
+    const addSong = (song) =>{
+        addToPlaylist(addedSong=>[song, ...addedSong]);
+    };
+
     return (
         <>
             <h2>Results</h2>
-            <ul className="results">
-                {props.results.map((result) => (
-                    <Song key={result.id} name={result.name} artist={result.artist} album={result.album}/>
-                ))}
+
+            <ul>
+                {results.map((result, index ) => {
+                    
+                    function handleSubmit(e){
+                        e.preventDefault();
+                        
+                        const song = [result.id + ' ', result.name + ' ', result.artist + ' ', result.album + ' '];
+                        addSong(song);
+                    }
+
+                    return (
+                    
+                        <li key={index}>
+                            <form onSubmit={handleSubmit}>
+                                <Song id={result.id} name={result.name} artist={result.artist} album={result.album}/> 
+                                <button type='submit' name='addSong'>+</button>
+                            </form> 
+                                
+                        </li>
+                    
+                    );
+                })}
+                
             </ul>
         </>
     );
