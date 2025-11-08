@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Song from './Song';
-import { generateId } from './utilities';
+import Track from './Track';
 
 
 function SearchResults({results, addToPlaylist}){
 
-    const addSong = (song) =>{
+    const addTrack = (song) =>{
         addToPlaylist(addedSong=>[song, ...addedSong]);
     };
 
@@ -19,16 +18,16 @@ function SearchResults({results, addToPlaylist}){
                     function handleSubmit(e){
                         e.preventDefault();
                         
-                        const song = [result.id + ' ', result.name + ' ', result.artist + ' ', result.album + ' '];
-                        addSong(song);
+                        const song = [result.id, result.name, result.artist, result.album, result.track];
+                        addTrack(song);
                     }
 
                     return (
                     
                         <li key={index}>
                             <form onSubmit={handleSubmit}>
-                                <Song id={result.id} name={result.name} artist={result.artist} album={result.album}/> 
-                                <button type='submit' name='addSong'>+</button>
+                                <Track name={result.name} artist={result.artist} album={result.album}/> 
+                                <button type='submit' name='addSong' className="secondary-btn">+</button>
                             </form> 
                                 
                         </li>

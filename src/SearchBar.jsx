@@ -25,7 +25,7 @@ function SearchBar(props){
     };
 
     return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit} id='query'>
             <input
                 onChange={handleTextChange}
                 value= {text} 

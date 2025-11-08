@@ -9,26 +9,30 @@ export const spotifyPlaylist = [
   {
     name: 'Through Fire and Flames',
     artist: 'Dragon Force',
-    album: 'Unknown',
+    album: 'Inhuman Rampage',
     id: 0,
+    track:'spotify:track:1UMdbkqX19OiwfExH7gzYA',
   },
   {
     name: 'Back In Black',
     artist: 'AC DC',
-    album: 'Unknown',
+    album: 'Back In Black',
     id: 1,
+    track: 'spotify:track:08mG3Y1vljYA6bvDt4Wqkj',
   },
   {
     name: 'The Art of War',
-    artist: 'Sabbaton',
-    album: 'Unknown',
+    artist: 'Sabaton',
+    album: 'The Art of War (Re-Armed)',
     id: 2,
+    track: 'spotify:track:3dt0qnuV3FZjTQN947C7FK',
   },
   {
     name: 'Paint It Black',
-    artist: 'Unknown',
-    album: 'Unknown',
+    artist: 'Rolling Stones',
+    album: 'Aftermath',
     id: 3,
+    track: 'spotify:track:63T7DJ1AFDD6Bn8VzG6JE8',
   },
 ];
 

@@ -4,7 +4,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Playlist from './Playlist';
-import Song from './Song';
+import Song from './Track';
 
 import { spotifyPlaylist, addedSongs } from './utilities';
 
@@ -15,14 +15,12 @@ function App() {
   const [results, setResults] = useState(spotifyPlaylist);
 
   const [playlist,setPlaylist] = useState([]);
+
+  const [userPlaylist, setUserPlaylist] = useState([]);
+
+
  
   
-
- 
-
-
-  
-
   return (
     <>
       <header>
@@ -31,7 +29,7 @@ function App() {
       <main>
         <SearchBar />
         <SearchResults results={results} addToPlaylist={setPlaylist}/>
-        <Playlist playlist={playlist} removeFromPlaylist={setPlaylist}/>
+        <Playlist playlist={playlist} removeFromPlaylist={setPlaylist} createNewPlaylist={setUserPlaylist} />
       </main>
       
       
